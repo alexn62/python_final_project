@@ -24,9 +24,6 @@ RESTART_PROMPT = 'Do you want to restart? (y/n) '
 RETRY_MESSAGE = 'Please type \'y\' to try again, or \'n\' to quit. '           
 GOOD_BYE_MESSAGE = 'Thank you and goodbye!'
 
-if __name__ == '__main__':
-    import doctest
-    doctest.testmod(verbose=True, optionflags=doctest.ELLIPSIS)
 
 def is_prime(num):
     """
@@ -250,6 +247,11 @@ def main_program():
     # Print out the results.
     print(f'\nYour prime numbers and the sum of numbers of which the primes are factors of are: {primes}\n')
 
+if __name__ == '__main__':
+    import doctest
+    doctest.testmod(verbose=True, optionflags=doctest.ELLIPSIS)
+
+    
     # Initialize restarting process
     restart_program_process()
 
