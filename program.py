@@ -247,15 +247,14 @@ def main_program():
     # Print out the results.
     print(f'\nYour prime numbers and the sum of numbers of which the primes are factors of are: {primes}\n')
 
-if __name__ == '__main__':
-    import doctest
-    doctest.testmod(verbose=True, optionflags=doctest.ELLIPSIS)
 
-    
     # Initialize restarting process
     restart_program_process()
 
 
+if __name__ == '__main__':
+    import doctest
+    doctest.testmod(verbose=True, optionflags=doctest.ELLIPSIS)
 
 
 # Run program.
