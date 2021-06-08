@@ -1,31 +1,31 @@
 import math
 
 
-#--- Function and variable definitions and tests ---#
+# --- Function and variable definitions and tests ---#
 
 
 # Constants
-    # Allowed max and min inputs.
+# Allowed max and min inputs.
 MAX_NUMBER = 100
 MIN_NUMBER = -100
 
-    # Define the maximum number of inputs permitted.
+# Define the maximum number of inputs permitted.
 MAX_LENGTH = 20
 
-    # Error messages
+# Error messages
 POSITIVE_AND_WHOLE_ERROR_MESSAGE = 'Number has to be a positive and whole number.'
 WHOLE_NUMBER_ONLY_ERROR_MESSAGE = 'Enter whole numbers only.'
 RANGE_ERROR_MESSAGE = f'Number has to be between {MIN_NUMBER} and {MAX_NUMBER}.'
 NOT_AN_ARRAY_ERROR_MESSAGE = 'The given input is not an array, or a value in the array is not an integer.'
 EMPTY_ARRAY = 'The given array does not include any elements.'
 
-    # Alert messages 
+# Alert messages
 RESTART_PROMPT = 'Do you want to restart? (y/n) '
 RETRY_MESSAGE = 'Please type \'y\' to try again, or \'n\' to quit. '           
 GOOD_BYE_MESSAGE = 'Thank you and goodbye!'
 
 
-def is_prime (num):
+def is_prime(num):
     """
     Checks if a number is a prime number, or not. Only accepts positive whole numbers as input.
 
@@ -55,14 +55,16 @@ def is_prime (num):
     AssertionError: Number has to be a positive and whole number.
     """
     
-    assert type(num) == int and num >= 0 , POSITIVE_AND_WHOLE_ERROR_MESSAGE
+    assert type(num) == int and num >= 0, POSITIVE_AND_WHOLE_ERROR_MESSAGE
     # Returns True if the number is greater than 0 and smaller or equal to 3, as 1, 2, and 3 are all prime numbers.
-    if 0 < num <= 3: return True
+    if 0 < num <= 3:
+        return True
 
     # If a number is even, it is not a prime number, and we will thus return False.
-    if num % 2 == 0: return False
+    if num % 2 == 0:
+        return False
 
-    # Now we will check whether a number is divisble by an odd integer starting at 3, incrementing it by 2,
+    # Now we will check whether a number is divisible by an odd integer starting at 3, incrementing it by 2,
     #   since only even numbers would be divisible by other even numbers.
     # We will stop the loop after we hit the square root of a given number. 
     # This is for optimization purposes, to avoid running unnecessary iterations.
@@ -70,14 +72,17 @@ def is_prime (num):
     #   the product would be greater than the original number. Therefore, we can stop checking after hitting
     #   the square root, since that would mean both factors are bigger than the square root, which is impossible.
     for i in range(3, math.ceil(math.sqrt(num)), 2):
-        if num % i == 0: return False
+        if num % i == 0:
+            return False
     return True
+
 
 number_array = []
 
+
 def handle_input(raw_input):
     """
-    :param num: The input to check for errors.
+    :param raw_input: The input to check for errors.
     :type raw_input: str
 
     >>> handle_input('foo')
@@ -132,8 +137,8 @@ def compute_numbers(numbers):
     Takes in an array an finds the prime numbers up to the max number of the array. Calculates the sum of numbers that a given prime number is 
         a factor of, and stores the values in a map.
 
-    :param number_array: The array to check for prime numbers and the sum of prime factors.
-    :type number_array: list
+    :param numbers: The array to check for prime numbers and the sum of prime factors.
+    :type numbers: list
     :rtype dict
     :return:
     Returns a dictionary with the prime numbers as keys, and the sum of the numbers a prime is a factor of.
@@ -176,7 +181,7 @@ def compute_numbers(numbers):
 
         for number in range(2, max(abs_numbers)):
             # Check each number between 2 and the max of the absolute numbers if it's a prime number.
-            # A non-valid number or input will never reach the is_prime() function, because handle_input() checks all the user inputs for validityö
+            # A non-valid number or input will never reach the is_prime() function, because handle_input() checks all the user inputs for validity
             if is_prime(number):
                 # If a given number is a prime, we will check whether it is a factor of one the original items in the numbers.
                 for num in numbers:
@@ -193,7 +198,8 @@ def compute_numbers(numbers):
         print(NOT_AN_ARRAY_ERROR_MESSAGE)
     except ValueError:
         print(EMPTY_ARRAY)
-        
+
+
 def restart_program_process(): 
     """
     Re-run program if desired. 'y' will re-run, 'n' will quit the program.
@@ -212,12 +218,7 @@ def restart_program_process():
         print(GOOD_BYE_MESSAGE)
         exit()
 
-if __name__ == '__main__':
-    import doctest
-    doctest.testmod(verbose=True, optionflags=doctest.ELLIPSIS)
 
-
-#--- Interactive program ---#
 # Defining main_program as a function to establish re-running possibilities.
 def main_program():
 
@@ -239,8 +240,7 @@ def main_program():
     if len(number_array) == 0:
         # Initialize restarting process.
         restart_program_process()
-    
-    
+
     # The array of numbers input by the user is forwarded to compute_numbers() and the return value is stored in a variable called 'primes'.
     primes = compute_numbers(number_array)
     
@@ -250,4 +250,10 @@ def main_program():
     # Initialize restarting process
     restart_program_process()
 
+
+if __name__ == '__main__':
+    import doctest
+    doctest.testmod(verbose=True, optionflags=doctest.ELLIPSIS)
+
+# Run program.
 main_program()
