@@ -1,6 +1,6 @@
 Motivation and background:
 Before attending this class, I got into programming for mobile development, 
-using Dart (a language developed by Google, similar to Javasctip) and Flutter (a framework for Dart). 
+using Dart (a language developed by Google, similar to Javascript) and Flutter (a framework for Dart).
 
 Because I quickly realized that although I was decent using flutter, I had a hard time with
 programming related tasks. In other words, I was okay developing apps, but not writing programs in Dart. 
@@ -26,10 +26,10 @@ Follow the instructions given in the terminal.
 7. The user can restart the program or quit.
 
 Reflection:
-I tried to approach the implementation step by step, testing along the way. I started without input and focues on the functionality first.
+I tried to approach the implementation step by step, testing along the way. I started without input and focused on the functionality first.
 After that, I added a lot of tests and divided the program into smaller chunks to do even more testing. 
 Some of the testing is not really necessary, as the program will not pass on wrong values to some functions, because the values are tested
-in a prior fucntion. 
+in a prior function.
 The most challenging part was figuring out the math behind the problem and finding a good optimization (stopping the loop after hitting sqrt(num)).
 Another challenge was to deal with the test mutating the original values, and adding numbers to the empty initialized list.
 I solved the problem through accessing and resetting a global variable in the main body of my program. 

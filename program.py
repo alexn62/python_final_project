@@ -24,6 +24,9 @@ RESTART_PROMPT = 'Do you want to restart? (y/n) '
 RETRY_MESSAGE = 'Please type \'y\' to try again, or \'n\' to quit. '           
 GOOD_BYE_MESSAGE = 'Thank you and goodbye!'
 
+if __name__ == '__main__':
+    import doctest
+    doctest.testmod(verbose=True, optionflags=doctest.ELLIPSIS)
 
 def is_prime(num):
     """
@@ -251,9 +254,7 @@ def main_program():
     restart_program_process()
 
 
-if __name__ == '__main__':
-    import doctest
-    doctest.testmod(verbose=True, optionflags=doctest.ELLIPSIS)
+
 
 # Run program.
 main_program()
