@@ -120,7 +120,7 @@ def handle_input(raw_input):
         number_input = int(raw_input)
 
         assert number_input == float(raw_input), WHOLE_NUMBER_ONLY_ERROR_MESSAGE
-        assert -100 <= number_input <= 100, RANGE_ERROR_MESSAGE
+        assert MIN_NUMBER <= number_input <= MAX_NUMBER, RANGE_ERROR_MESSAGE
 
         number_array.append(number_input)
 
@@ -176,7 +176,7 @@ def compute_numbers(numbers):
             raise ValueError
         if type(numbers) != list:
             raise TypeError
-        # abs() will raise a TypeError is an element of the array is not an integer. The error will be caught, and we will output an error-message.
+        # abs() will raise a TypeError if an element of the array is not an integer. The error will be caught, and we will output an error-message.
         abs_numbers = list(map(abs, numbers))
 
         for number in range(2, max(abs_numbers)):
