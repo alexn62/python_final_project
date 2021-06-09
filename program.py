@@ -6,8 +6,8 @@ import math
 
 # Constants
 # Allowed max and min inputs.
-MAX_NUMBER = 100
-MIN_NUMBER = -100
+MAX_NUMBER = 1000
+MIN_NUMBER = -1000
 
 # Define the maximum number of inputs permitted.
 MAX_LENGTH = 20
@@ -179,8 +179,8 @@ def compute_numbers(numbers):
         # abs() will raise a TypeError if an element of the array is not an integer. The error will be caught, and we will output an error-message.
         abs_numbers = list(map(abs, numbers))
 
-        for number in range(2, max(abs_numbers)):
-            # Check each number between 2 and the max of the absolute numbers if it's a prime number.
+        for number in range(2, max(abs_numbers)+1):
+            # Check each number between 2 and the max of the absolute numbers (+1 to include the biggest number too) if it's a prime number.
             # A non-valid number or input will never reach the is_prime() function, because handle_input() checks all the user inputs for validity
             if is_prime(number):
                 # If a given number is a prime, we will check whether it is a factor of one the original items in the numbers.
